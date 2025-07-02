@@ -6,55 +6,110 @@
   <title>Sanketh Honavar | ML Enthusiast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --accent-color: #1e88e5;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #64b5f6;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background-color: #f8f9fa;
-      color: #212529;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     h1 {
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 0.2em;
     }
+
     h2 {
       font-size: 1.5rem;
       margin-top: 2em;
     }
+
     h3 {
       font-size: 1.2rem;
       margin-top: 1.5em;
-      color: #1e88e5;
+      color: var(--accent-color);
     }
+
     .section {
       margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease forwards;
     }
+
     ul {
       padding-left: 1.2em;
     }
+
     a {
-      color: #1e88e5;
+      color: var(--accent-color);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     .tagline {
       font-style: italic;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
-      color: #555;
+      color: #777;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .theme-toggle img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <img id="theme-icon" src="https://img.icons8.com/ios-filled/30/000000/crescent-moon.png" alt="Toggle Theme" />
+  </button>
   <div class="container">
     <h1>Sanketh Honavar</h1>
     <p class="tagline">AI & Machine Learning Enthusiast</p>
@@ -66,35 +121,30 @@
 
     <div class="section">
       <h2>Projects</h2>
-
       <h3>1. Plant Disease Detection Using Deep Learning</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Helps farmers detect plant leaf diseases early to prevent crop loss.</li>
         <li><strong>Tech Used:</strong> Python, TensorFlow, Keras, OpenCV, CNN</li>
         <li><strong>Contribution:</strong> Built and trained a CNN to classify leaf images; achieved accurate classification of multiple diseases.</li>
       </ul>
-
       <h3>2. Stock Price Prediction using Sentiment Analysis</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Predicts stock trends using news sentiment for investment decisions.</li>
         <li><strong>Tech Used:</strong> Python, NLTK, Scikit-learn, Pandas</li>
         <li><strong>Contribution:</strong> Scraped financial headlines, ran sentiment analysis, and linked it to stock price trends.</li>
       </ul>
-
       <h3>3. License Plate Recognition System</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Automates license plate reading for security/parking systems.</li>
         <li><strong>Tech Used:</strong> Python, OpenCV, OCR (Tesseract), NumPy</li>
         <li><strong>Contribution:</strong> Created a system for detecting and reading plates from live camera feeds.</li>
       </ul>
-
       <h3>4. Vehicle Rental Management System</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Streamlines the vehicle rental and booking process.</li>
         <li><strong>Tech Used:</strong> Python, SQL, Tkinter</li>
         <li><strong>Contribution:</strong> Built a GUI app integrated with a SQL database to manage rentals.</li>
       </ul>
-
       <h3>5. Recommendation of Music Trends</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Recommends music based on user preferences and trends.</li>
@@ -114,5 +164,19 @@
          LinkedIn: <a href="https://linkedin.com/in/sankethhonavar" target="_blank">linkedin.com/in/sankethhonavar</a></p>
     </div>
   </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme") || "light";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+
+      const icon = document.getElementById("theme-icon");
+      icon.src = newTheme === "dark"
+        ? "https://img.icons8.com/ios-glyphs/30/ffffff/sun--v1.png"
+        : "https://img.icons8.com/ios-filled/30/000000/crescent-moon.png";
+    }
+  </script>
 </body>
 </html>

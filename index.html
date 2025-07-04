@@ -25,7 +25,7 @@
       line-height: 1.6;
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -78,10 +78,8 @@
       color: #777;
     }
 
-    .theme-toggle {
+    .theme-toggle, .linkedin-float, .email-float {
       position: fixed;
-      top: 20px;
-      right: 20px;
       z-index: 1000;
       background: none;
       border: none;
@@ -89,13 +87,32 @@
       transition: transform 0.3s;
     }
 
-    .theme-toggle img {
+    .theme-toggle:hover,
+    .linkedin-float:hover,
+    .email-float:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-toggle img,
+    .linkedin-float img,
+    .email-float img {
       width: 30px;
       height: 30px;
     }
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
+    .theme-toggle {
+      top: 20px;
+      right: 20px;
+    }
+
+    .linkedin-float {
+      top: 60px;
+      right: 20px;
+    }
+
+    .email-float {
+      top: 100px;
+      right: 20px;
     }
 
     @keyframes fadeInUp {
@@ -110,6 +127,15 @@
   <button class="theme-toggle" onclick="toggleTheme()">
     <img id="theme-icon" src="https://img.icons8.com/ios-filled/30/000000/crescent-moon.png" alt="Toggle Theme" />
   </button>
+
+  <a href="https://linkedin.com/in/sankethhonavar" class="linkedin-float" target="_blank">
+    <img src="https://img.icons8.com/ios-filled/30/1e88e5/linkedin.png" alt="LinkedIn" />
+  </a>
+
+  <a href="mailto:sankethhonavar25@gmail.com" class="email-float">
+    <img src="https://img.icons8.com/ios-filled/30/1e88e5/new-post.png" alt="Email" />
+  </a>
+
   <div class="container">
     <h1>Sanketh Honavar</h1>
     <p class="tagline">AI & Machine Learning Enthusiast</p>
@@ -120,48 +146,52 @@
     </div>
 
     <div class="section">
-      <h2>Projects</h2>
+      <h2>Featured Project</h2>
+      <h3>Chat with PDF using Gemini</h3>
+      <ul>
+        <li><strong>Problem Solved:</strong> Enables users to chat with their PDFs using a Gemini-powered AI assistant.</li>
+        <li><strong>Tech Stack:</strong> Python, LangChain, FAISS, Gemini API, Streamlit</li>
+        <li><strong>Contribution:</strong> Built a full-stack QA system over PDF using vector embeddings and generative AI.</li>
+        <li><a href="https://pdfchatbot-ghmxxz3srersdnegf9purz.streamlit.app" target="_blank">🌐 Live Demo</a> | <a href="https://github.com/SankethHonavar/PDF_ChatBot" target="_blank">📂 GitHub Repo</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Academic Projects</h2>
       <h3>1. Plant Disease Detection Using Deep Learning</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Helps farmers detect plant leaf diseases early to prevent crop loss.</li>
         <li><strong>Tech Used:</strong> Python, TensorFlow, Keras, OpenCV, CNN</li>
         <li><strong>Contribution:</strong> Built and trained a CNN to classify leaf images; achieved accurate classification of multiple diseases.</li>
       </ul>
+
       <h3>2. Stock Price Prediction using Sentiment Analysis</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Predicts stock trends using news sentiment for investment decisions.</li>
         <li><strong>Tech Used:</strong> Python, NLTK, Scikit-learn, Pandas</li>
         <li><strong>Contribution:</strong> Scraped financial headlines, ran sentiment analysis, and linked it to stock price trends.</li>
       </ul>
+
       <h3>3. License Plate Recognition System</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Automates license plate reading for security/parking systems.</li>
         <li><strong>Tech Used:</strong> Python, OpenCV, OCR (Tesseract), NumPy</li>
         <li><strong>Contribution:</strong> Created a system for detecting and reading plates from live camera feeds.</li>
       </ul>
+
       <h3>4. Vehicle Rental Management System</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Streamlines the vehicle rental and booking process.</li>
         <li><strong>Tech Used:</strong> Python, SQL, Tkinter</li>
         <li><strong>Contribution:</strong> Built a GUI app integrated with a SQL database to manage rentals.</li>
       </ul>
+
       <h3>5. Recommendation of Music Trends</h3>
       <ul>
         <li><strong>Problem Solved:</strong> Recommends music based on user preferences and trends.</li>
         <li><strong>Tech Used:</strong> Python, Pandas, Matplotlib, Collaborative Filtering</li>
         <li><strong>Contribution:</strong> Built a music recommender using collaborative filtering and trend analysis.</li>
       </ul>
-    </div>
-
-    <div class="section">
-      <h2>Skills & Tools</h2>
-      <p>Python, SQL, Pandas, NumPy, Matplotlib, TensorFlow, Scikit-learn, Keras, OpenCV, Flask (basics), Data Cleaning, Model Evaluation</p>
-    </div>
-
-    <div class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sankethhonavar25@gmail.com">sankethhonavar25@gmail.com</a><br>
-         LinkedIn: <a href="https://linkedin.com/in/sankethhonavar" target="_blank">linkedin.com/in/sankethhonavar</a></p>
     </div>
   </div>
 
